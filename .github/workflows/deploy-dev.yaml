@@ -35,6 +35,12 @@ jobs:
             ARM_SKIP_PROVIDER_REGISTRATION: true
             
         steps:
+            - name: Clean Terraform cache
+              run: |
+                rm -rf env/dev/.terraform
+                rm -f env/dev/.terraform.lock.hcl
+                terraform -chdir=env/dev init -input=false
+
             - name: Clone git repository
               uses: actions/checkout@v4
             - name: Terraform setup
