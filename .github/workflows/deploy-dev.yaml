@@ -51,7 +51,9 @@ jobs:
                 chmod 777 ./env/dev/keys/711incident_server.pub
                 
             - name: Terraform init
-              run: terraform -chdir=env/dev init
+              run: |
+                export TF_LOG=DEBUG
+                terraform -chdir=env/dev init -input=false
             - name: Terraform fmt
               run: terraform -chdir=env/dev fmt
             - name: Terraform plan
