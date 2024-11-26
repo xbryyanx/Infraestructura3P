@@ -30,7 +30,7 @@ services:
  
   incident-api:
       image: fernandaglez/apigeo:latest
-      container_name: incident-api
+      container_name: geoapi
       expose:
         - "3000"
       depends_on:
