@@ -45,10 +45,10 @@ jobs:
             - name: Create SSH from secret
               run:  |
                 mkdir -p ./env/dev/keys
-                echo "${{ secrets.SSH_PRIVATE_KEY }}" > ./env/dev/keys/711incident_server
-                echo "${{ secrets.SSH_PUBLIC_KEY }}" > ./env/dev/keys/711incident_server.pub
-                chmod 777 ./env/dev/keys/711incident_server
-                chmod 777 ./env/dev/keys/711incident_server.pub
+                echo "${{ secrets.SSH_PRIVATE_KEY }}" > ./env/dev/keys/MovilApp
+                echo "${{ secrets.SSH_PUBLIC_KEY }}" > ./env/dev/keys/MovilApp.pub
+                chmod 777 ./env/dev/keys/MovilApp
+                chmod 777 ./env/dev/keys/MovilApp.pub
                 
             - name: Terraform init
               run: terraform -chdir=env/dev init

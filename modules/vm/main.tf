@@ -123,7 +123,7 @@ resource "azurerm_linux_virtual_machine" "IN_VM" {
 
   admin_ssh_key {
     username   = "${var.admin_username}"
-    public_key = file("./keys/711incident_server.pub")
+    public_key = file("./keys/MovilApp.pub")
   }
 
 provisioner "file"{
@@ -133,7 +133,7 @@ provisioner "file"{
   connection{
     type = "ssh"
     user = "${var.admin_username}"
-    private_key = file("./keys/711incident_server")
+    private_key = file("./keys/MovilApp")
     host = self.public_ip_address
   }
 } 
@@ -161,7 +161,7 @@ provisioner "remote-exec" {
 connection{
     type = "ssh"
     user = "${var.admin_username}"
-    private_key = file("./keys/711incident_server")
+    private_key = file("./keys/MovilApp")
     host = self.public_ip_address
   }
 }
@@ -183,7 +183,7 @@ resource "null_resource" "init_docker" {
   connection{
     type = "ssh"
     user = "${var.admin_username}"
-    private_key = file("./keys/711incident_server")
+    private_key = file("./keys/MovilApp")
     host = azurerm_linux_virtual_machine.IN_VM.public_ip_address
   }
 
