@@ -29,8 +29,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
  
   incident-api:
-      image: fernandaglez/apigeo:latest
-      container_name: geoapi
+      image: paolamartinez2024/711-events-api 
+      container_name: events-api
       expose:
         - "3000"
       depends_on:
