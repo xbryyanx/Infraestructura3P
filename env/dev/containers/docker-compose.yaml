@@ -32,7 +32,7 @@ services:
       image: paolamartinez2024/711-events-api:latest
       container_name: events-api
       expose:
-        - "4000"
+        - 3000
       depends_on:
         - mongo
       environment:
